@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC9CE672-8AFE-402B-9219-718CB225F983}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Apriorit\TMS\.gitignore = ..\..\Apriorit\TMS\.gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD9AA385-3E87-45AF-BADC-0B3FC06D0B06}
+	EndGlobalSection
+EndGlobal
