@@ -10,6 +10,7 @@ namespace PR.Bootstrap.Automapper
         public AutomapperProfile()
         {
             #region MapSettings
+            CreateMap<Report, ReportDTO>().ReverseMap();
 
             #endregion
         }

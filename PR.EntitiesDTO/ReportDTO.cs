@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace PR.EntitiesDTO
@@ -22,7 +23,10 @@ namespace PR.EntitiesDTO
 
         public ReportStatusDTO Status { get; set; }
 
-        public UserDTO User { get; set; }
+        [Display(Name = "Status")]
+        public int StatusId { get; set; }
+
+        public string UserId { get; set; }
 
         public ICollection<AttachedFileDTO> AttachedFiles { get; set; }
     }
