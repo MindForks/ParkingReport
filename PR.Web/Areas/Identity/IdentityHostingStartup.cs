@@ -15,7 +15,13 @@ namespace PR.Web.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
+            builder.ConfigureServices((context, services) =>
+            {
+                services.AddDbContext<PRDbContext>(options =>
+                    options.UseMySql(
+                        context.Configuration.GetConnectionString("DefaultConnection")));
+                services.AddDefaultIdentity<User>()
+                     .AddEntityFrameworkStores<PRDbContext>();
             });
         }
     }

@@ -51,6 +51,19 @@ namespace PR.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ReportStatus",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ReportStatus", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -162,17 +175,63 @@ namespace PR.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Longitude = table.Column<double>(nullable: false),
+                    Latitude = table.Column<double>(nullable: false),
+                    CarNumber = table.Column<string>(nullable: true),
+                    Violation = table.Column<string>(nullable: true),
+                    AssignedComment = table.Column<string>(nullable: true),
+                    CreationTime = table.Column<DateTimeOffset>(nullable: false),
+                    StatusId = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Report", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Report_ReportStatus_StatusId",
+                        column: x => x.StatusId,
+                        principalTable: "ReportStatus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Report_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AttachedFile",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    Path = table.Column<string>(nullable: false),
+                    ReportId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AttachedFile", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AttachedFile_Report_ReportId",
+                        column: x => x.ReportId,
+                        principalTable: "Report",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "ReportStatus",
+                columns: new[] { "Id", "Title" },
+                values: new object[,]
+                {
+                    { 1, "Created" },
+                    { 2, "InProgress" },
+                    { 3, "FalseIncident" },
+                    { 4, "CarAbsent" },
+                    { 5, "Fixed" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -215,6 +274,16 @@ namespace PR.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AttachedFile_ReportId",
+                table: "AttachedFile",
+                column: "ReportId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Report_StatusId",
+                table: "Report",
+                column: "StatusId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Report_UserId",
                 table: "Report",
                 column: "UserId");
@@ -238,10 +307,16 @@ namespace PR.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Report");
+                name: "AttachedFile");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Report");
+
+            migrationBuilder.DropTable(
+                name: "ReportStatus");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

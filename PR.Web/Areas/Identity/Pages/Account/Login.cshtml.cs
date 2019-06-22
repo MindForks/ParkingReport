@@ -19,10 +19,10 @@ namespace PR.Web.Areas.Identity.Pages.Account
         private readonly SignInManager<User> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<User> signInManager)
         {
             _signInManager = signInManager;
-            _logger = logger;
+            //_logger = logger;
         }
 
         [BindProperty]

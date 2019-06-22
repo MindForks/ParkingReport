@@ -7,6 +7,7 @@ using PR.Bootstrap.Automapper;
 using PR.Entities;
 using PR.Data.Repositories;
 using Microsoft.AspNetCore.Identity;
+using PR.Business.Services;
 
 namespace PR.Bootstrap
 {
@@ -25,9 +26,12 @@ namespace PR.Bootstrap
 
 
             #region Repositories
+            services.AddScoped<IRepositoryAsync<User>, UserRepository>();
             #endregion Repositories
 
             #region Services
+            services.AddScoped<IRepositoryAsync<User>, UserRepository>();
+            services.AddTransient<UserService>();
             #endregion Services
         }
         public static void AddIdentity(this IServiceCollection services)
