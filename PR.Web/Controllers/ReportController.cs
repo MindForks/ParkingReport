@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PR.Business.Services;
 using PR.EntitiesDTO;
@@ -14,10 +16,12 @@ namespace PR.Web.Controllers
     {
         private string _userId { get { return User.Identity.GetUserId(); } }
         private readonly ReportService _ReportService;
+        private readonly IHostingEnvironment _appEnvironment;
 
-        public ReportController(ReportService ReportService)
+        public ReportController(ReportService ReportService, IHostingEnvironment appEnvironment)
         {
             _ReportService = ReportService;
+            _appEnvironment = appEnvironment;
         }
 
         [HttpGet]
@@ -43,7 +47,7 @@ namespace PR.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _ReportService.Create(report);
+                _ReportService.Create(report, _appEnvironment);
             }
 
             return RedirectToAction(nameof(List));

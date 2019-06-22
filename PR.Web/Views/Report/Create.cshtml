@@ -12,7 +12,7 @@
     <input asp-for="Id" type="hidden" />
     <input asp-for="UserId" type="hidden" />
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Longitude" class="control-label"></label>
@@ -40,6 +40,10 @@
                 <span asp-validation-for="AssignedComment" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="AttachedFiles" class="control-label"></label>
+                <input type="file" asp-for="AttachedFiles" class="form-control" multiple />
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </form>
@@ -53,3 +57,11 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+$(document).ready(function () {
+        navigator.geolocation.getCurrentPosition(function (location) {
+            $("#Latitude").val(location.coords.latitude);
+            $("#Longitude").val(location.coords.longitude);
+        });
+    });

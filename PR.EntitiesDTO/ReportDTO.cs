@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -28,6 +29,6 @@ namespace PR.EntitiesDTO
 
         public string UserId { get; set; }
 
-        public ICollection<AttachedFileDTO> AttachedFiles { get; set; }
+        public ICollection<IFormFile> AttachedFiles { get; set; }
     }
 }
