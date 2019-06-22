@@ -20,14 +20,39 @@
     </environment>
 </head>
 <body>
-<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-primary mb-3">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ParkingReport</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="VerificateNumber">SMS</a></li>
+                  
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
     <div class="flex-row d-flex">
         <button type="button" class="navbar-toggler mr-2 " data-toggle="offcanvas" title="Toggle responsive left sidebar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#" title="Report Parking">Report Parking</a>
     </div>
-</nav>
+
+
 
 <partial name="_CookieConsentPartial" />
 
@@ -35,7 +60,9 @@
 <div class="row row-offcanvas row-offcanvas-left">
     <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
         <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
-            <li class="nav-item"><a class="nav-link" asp-controller="Report" asp-action="Create">Report</a></li>
+            <li class="nav-item" asp-controller="Assistant_Report" asp-action="List"><a class="nav-link">My Reports</a></li>
+            <li class="nav-item" asp-controller="Assistant_Report" asp-action="List"><a class="nav-link">Assistant Reports</a></li>
+
             <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
             <li class="nav-item">
@@ -51,7 +78,8 @@
                             <button type="submit" class="btn btn-link">Logout</button>
                         </div>
                     </form>
-                }</li>
+                }
+            </li>
         </ul>
     </div>
     <!--/col-->

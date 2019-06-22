@@ -47,14 +47,17 @@ namespace PR.Business.Services
 
             var reportEntity = _mapper.Map<ReportDTO, Report>(report);
 
-            foreach (var file in report.AttachedFiles)
+            if (report.AttachedFiles != null)
             {
-                string path = "/Files/" + file.FileName;
-                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                foreach (var file in report.AttachedFiles)
                 {
-                    file.CopyTo(fileStream);
+                    string path = "/Files/" + file.FileName;
+                    using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+                    reportEntity.AttachedFiles.Add(new AttachedFile { Name = file.FileName, Path = _appEnvironment.WebRootPath + path });
                 }
-                reportEntity.AttachedFiles.Add(new AttachedFile { Name = file.FileName, Path = _appEnvironment.WebRootPath + path });
             }
 
             _repository.Create(reportEntity);
