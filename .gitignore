@@ -332,3 +332,5 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+/PR.Data/Migrations/20190622144558_InitMigration2.Designer.cs
+/PR.Data/Migrations/20190622144558_InitMigration2.cs

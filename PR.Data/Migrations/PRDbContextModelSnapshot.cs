@@ -169,7 +169,8 @@ namespace PR.Data.Migrations
 
                     b.Property<string>("UserId");
 
-                    b.Property<string>("Violation");
+                    b.Property<string>("Violation")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -217,9 +218,13 @@ namespace PR.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<string>("FirstName");
+
                     b.Property<bool>("IsBanned");
 
                     b.Property<bool>("IsNumberAproved");
+
+                    b.Property<string>("LastName");
 
                     b.Property<bool>("LockoutEnabled");
 
