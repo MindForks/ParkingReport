@@ -42,6 +42,8 @@ namespace PR.Data.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     IsBanned = table.Column<bool>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
                     IsNumberAproved = table.Column<bool>(nullable: false),
                     Plate = table.Column<string>(nullable: true)
                 },
@@ -178,7 +180,7 @@ namespace PR.Data.Migrations
                     Longitude = table.Column<double>(nullable: false),
                     Latitude = table.Column<double>(nullable: false),
                     CarNumber = table.Column<string>(nullable: true),
-                    Violation = table.Column<string>(nullable: true),
+                    Violation = table.Column<string>(nullable: false),
                     AssignedComment = table.Column<string>(nullable: true),
                     CreationTime = table.Column<DateTimeOffset>(nullable: false),
                     StatusId = table.Column<int>(nullable: false),
