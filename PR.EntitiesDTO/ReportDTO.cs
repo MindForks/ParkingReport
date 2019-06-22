@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PR.EntitiesDTO
+{
+    public class ReportDTO
+    {
+        public int Id { get; set; }
+
+        public double Longitude { get; set; }
+
+        public double Latitude { get; set; }
+
+        public string CarNumber { get; set; }
+
+        public string Violation { get; set; }
+
+        public string AssignedComment { get; set; }
+
+        public DateTimeOffset CreationTime { get; set; }
+
+        public ReportStatusDTO Status { get; set; }
+
+        public UserDTO User { get; set; }
+
+        public ICollection<AttachedFileDTO> AttachedFiles { get; set; }
+    }
+}
