@@ -40,6 +40,8 @@ namespace PR.Business.Services
         {
             if (report == null)
                 throw new ArgumentNullException(nameof(report));
+            report.CreationTime = DateTimeOffset.Now;
+            report.StatusId = (int)ReportStatuses.Created;
 
             var reportEntity = _mapper.Map<ReportDTO, Report>(report);
             _repository.Create(reportEntity);
