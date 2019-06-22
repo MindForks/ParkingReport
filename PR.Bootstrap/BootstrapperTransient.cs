@@ -42,8 +42,8 @@ namespace PR.Bootstrap
             services.AddTransient<ReportService>();
 
             services.AddTransient<ReportStatusService>(); 
-            services.AddTransient<UserService>(); 
-
+            services.AddTransient<UserService>();
+            services.AddTransient<ReportAssistantService>();
             #endregion Services
         }
         public static void AddIdentity(this IServiceCollection services)
