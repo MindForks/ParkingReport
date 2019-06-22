@@ -1,8 +1,10 @@
-﻿using PR.Entities;
+﻿using Microsoft.AspNetCore.Hosting;
+using PR.Entities;
 using PR.EntitiesDTO;
 using PR.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -36,7 +38,7 @@ namespace PR.Business.Services
             return _mapper.Map<Report, ReportDTO>(report);
         }
 
-        public void Create(ReportDTO report)
+        public void Create(ReportDTO report, IHostingEnvironment _appEnvironment)
         {
             if (report == null)
                 throw new ArgumentNullException(nameof(report));
@@ -44,6 +46,17 @@ namespace PR.Business.Services
             report.StatusId = (int)ReportStatuses.Created;
 
             var reportEntity = _mapper.Map<ReportDTO, Report>(report);
+
+            foreach (var file in report.AttachedFiles)
+            {
+                string path = "/Files/" + file.FileName;
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+                reportEntity.AttachedFiles.Add(new AttachedFile { Name = file.FileName, Path = _appEnvironment.WebRootPath + path });
+            }
+
             _repository.Create(reportEntity);
             _repository.SaveChanges();
         }

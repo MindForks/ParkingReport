@@ -10,8 +10,11 @@ namespace PR.Bootstrap.Automapper
         public AutomapperProfile()
         {
             #region MapSettings
-            CreateMap<Report, ReportDTO>().ReverseMap();
 
+            CreateMap<Report, ReportDTO>()
+            .ForMember(x => x.AttachedFiles, opt => opt.Ignore());
+            CreateMap<ReportDTO, Report>()
+            .ForMember(x => x.AttachedFiles, opt => opt.Ignore());
             #endregion
         }
     }
