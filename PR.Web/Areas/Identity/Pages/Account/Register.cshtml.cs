@@ -86,7 +86,8 @@ namespace PR.Web.Areas.Identity.Pages.Account
                     IdentityResult r2 = await _roleManager.CreateAsync(new IdentityRole("user"));
                     IdentityResult r3 = await _roleManager.CreateAsync(new IdentityRole("parkingAssistant"));
                 }
-                var user = new User { UserName = Input.FirstName + Input.LastName, Email = Input.Email, PhoneNumber = Input.Number };
+                var user = new User { FirstName = Input.FirstName, LastName = Input.LastName, Email = Input.Email, PhoneNumber = Input.Number, SecurityStamp = Guid.NewGuid().ToString(), UserName = Input.Email };
+            
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 var result2 = await _userManager.AddToRoleAsync(user, "user");
                 if (result.Succeeded && result2.Succeeded)

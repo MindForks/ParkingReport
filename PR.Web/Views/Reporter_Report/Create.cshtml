@@ -4,23 +4,33 @@
     ViewData["Title"] = "Create ";
 }
 <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+<link href="~/css/bootstrap-imageupload.min.css" rel="stylesheet">
 
+<style>
+    .imageupload {
+        margin: 20px 0;
+    }
+</style>
 
 <hr />
 <div class="row">
-    <div class="col-md-5">
-        <img class="img-responsive" src="~/images/image.png" />
-    </div>
+    <div class="col-md-4">
 
+    </div>
+    <div class="col-md-4">
+        <input type="image" src="~/images/image.png" />
+        <input type="file" id="my_file" style="display: none;" />
+    </div>
+    <div class="col-md-4">
+
+    </div>
     <input asp-for="Id" type="hidden" />
     <input asp-for="UserId" type="hidden" />
+    <input id="Latitude" asp-for="Latitude" type="hidden" />
+    <input id="Longitude" asp-for="Longitude" type="hidden" />
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <input asp-for="Longitude" id="Longitude" class="form-control" type="hidden"/>
-            <input asp-for="Latitude" id="Latitude" class="form-control" type="hidden" />
-
             <div class="form-group">
                 <label asp-for="CarNumber" class="control-label"></label>
                 <input asp-for="CarNumber" class="form-control" />
@@ -28,13 +38,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Violation" class="control-label"></label>
-                <input asp-for="Violation" class="form-control" />
+                <textarea asp-for="Violation" class="form-control"></textarea>
                 <span asp-validation-for="Violation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AssignedComment" class="control-label"></label>
-                <input asp-for="AssignedComment" class="form-control" />
-                <span asp-validation-for="AssignedComment" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-success" />
@@ -44,9 +49,29 @@
     </div>
 </div>
 
-<div>s
-    <a asp-action="List">Back to List</a>
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script src="~/js/bootstrap-imageupload.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $("input[type='image']").click(function() {
+        $("input[id='my_file']").click();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        navigator.geolocation.getCurrentPosition(function (location) {
+
+            var lat = location.coords.latitude;
+            var long = location.coords.longitude;
+            document.getElementById("Latitude").setAttribute("value",lat);
+            document.getElementById("Longitude").setAttribute("value", long);
+        });
+    });
+</script>
