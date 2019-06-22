@@ -7,7 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -20,104 +20,77 @@
     </environment>
 </head>
 <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ParkingReport</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="VerificateNumber">SMS</a></li>
-                  
-                </ul>
-            </div>
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-primary mb-3">
+        <div class="flex-row d-flex">
+            <button type="button" class="navbar-toggler mr-2 " data-toggle="offcanvas" title="Toggle responsive left sidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#" title="Report Parking">Report Parking</a>
         </div>
     </nav>
 
+    <partial name="_CookieConsentPartial" />
 
-    <div class="flex-row d-flex">
-        <button type="button" class="navbar-toggler mr-2 " data-toggle="offcanvas" title="Toggle responsive left sidebar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#" title="Report Parking">Report Parking</a>
-    </div>
-
-
-
-<partial name="_CookieConsentPartial" />
-
-<div class="container-fluid" id="main">
-<div class="row row-offcanvas row-offcanvas-left">
-    <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
-        <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
-            <li class="nav-item" asp-controller="Assistant_Report" asp-action="List"><a class="nav-link">My Reports</a></li>
-            <li class="nav-item" asp-controller="Assistant_Report" asp-action="List"><a class="nav-link">Assistant Reports</a></li>
-
-            <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
-            <li class="nav-item">
-                @if (!User.Identity.IsAuthenticated)
-                {
-                    <a class="nav-link" href="#">Login</a>
-                }
-                else
-                {
-                    <form method="post">
-                        <div class="input-group">
-                            <span>@User.Identity.IsAuthenticated</span>
-                            <button type="submit" class="btn btn-link">Logout</button>
-                        </div>
-                    </form>
-                }
-            </li>
-        </ul>
-    </div>
-    <!--/col-->
-    <div class="col main pt-5 mt-3">
-    @RenderBody()
-    </div>
-</div> <!-- /main container-->
-    <footer class="container-fluid">
-        <p class="text-right small">©2016-2018 Company</p>
-    </footer>
+    <div class="container-fluid" id="main">
+        <div class="row row-offcanvas row-offcanvas-left">
+            <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
+                <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Assistant_Report" asp-action="List">My reports</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Reporter_Report" asp-action="List">Assistant reports</a></li>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <a class="nav-link" href="#">Login</a>
+                        }
+                        else
+                        {
+                            <form method="post">
+                                <div class="input-group">
+                                    <span>@User.Identity.IsAuthenticated</span>
+                                    <button type="submit" class="btn btn-link">Logout</button>
+                                </div>
+                            </form>
+                        }
+                    </li>
+                </ul>
+            </div>
+            <!--/col-->
+            <div class="col main pt-5 mt-3">
+                @RenderBody()
+            </div>
+        </div> <!-- /main container-->
+        <footer class="container-fluid">
+            <p class="text-right small">©2016-2018 Company</p>
+        </footer>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Modal</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>This is a dashboard layout for Bootstrap 4. This is an example of the Modal component which you can use to show content.
-                        Any content can be placed inside the modal and it can use the Bootstrap grid classes.</p>
-                    <p>
-                        <a href="https://www.codeply.com/go/KrUO8QpyXP" target="_ext">Grab the code at Codeply</a>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary-outline" data-dismiss="modal">OK</button>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Modal</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            This is a dashboard layout for Bootstrap 4. This is an example of the Modal component which you can use to show content.
+                            Any content can be placed inside the modal and it can use the Bootstrap grid classes.
+                        </p>
+                        <p>
+                            <a href="https://www.codeply.com/go/KrUO8QpyXP" target="_ext">Grab the code at Codeply</a>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary-outline" data-dismiss="modal">OK</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <environment include="Development">
         <script src="~/lib/jquery/jquery.js"></script>
