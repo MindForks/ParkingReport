@@ -41,8 +41,12 @@ namespace PR.Business.Services
         {
             if (report == null)
                 throw new ArgumentNullException(nameof(report));
-
+            var instance = GetById(report.Id);
             var reportEntity = _mapper.Map<ReportDTO, Report>(report);
+            reportEntity.CreationTime = instance.CreationTime;
+            reportEntity.UserId = instance.UserId;
+            reportEntity.Violation = instance.Violation;
+
             _repository.Update(reportEntity);
             _repository.SaveChanges();
         }

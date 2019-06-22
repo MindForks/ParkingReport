@@ -70,10 +70,7 @@ namespace PR.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit([FromForm]ReportDTO report)
         {
-            if (ModelState.IsValid)
-            {
-                _ReportService.Update(report);
-            }
+            _ReportService.Update(report);
             return RedirectToAction(nameof(List));
         }
         [HttpGet]
