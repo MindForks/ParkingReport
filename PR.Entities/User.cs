@@ -7,5 +7,6 @@ namespace PR.Entities
 {
     public class User : IdentityUser
     {
+        public ICollection<Report> Reports { get; set; }
     }
 }
