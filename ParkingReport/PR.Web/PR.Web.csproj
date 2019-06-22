@@ -10,7 +10,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PR.Bootstrap\PR.Bootstrap.csproj" />
+    <ProjectReference Include="..\PR.Business\PR.Business.csproj" />
+    <ProjectReference Include="..\PR.EntitiesDTO\PR.EntitiesDTO.csproj" />
+    <ProjectReference Include="..\PR.Interfaces\PR.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

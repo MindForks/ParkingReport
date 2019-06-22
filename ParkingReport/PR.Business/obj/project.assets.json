@@ -207,6 +207,39 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "PR.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/PR.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PR.Entities.dll": {}
+        }
+      },
+      "PR.EntitiesDTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "PR.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PR.EntitiesDTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PR.EntitiesDTO.dll": {}
+        }
+      },
+      "PR.Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/PR.Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PR.Interfaces.dll": {}
+        }
       }
     }
   },
@@ -673,11 +706,29 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "PR.Entities/1.0.0": {
+      "type": "project",
+      "path": "../PR.Entities/PR.Entities.csproj",
+      "msbuildProject": "../PR.Entities/PR.Entities.csproj"
+    },
+    "PR.EntitiesDTO/1.0.0": {
+      "type": "project",
+      "path": "../PR.EntitiesDTO/PR.EntitiesDTO.csproj",
+      "msbuildProject": "../PR.EntitiesDTO/PR.EntitiesDTO.csproj"
+    },
+    "PR.Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../PR.Interfaces/PR.Interfaces.csproj",
+      "msbuildProject": "../PR.Interfaces/PR.Interfaces.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "PR.Entities >= 1.0.0",
+      "PR.EntitiesDTO >= 1.0.0",
+      "PR.Interfaces >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -709,7 +760,17 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Михаил\\Desktop\\ParkingReport\\ParkingReport\\PR.EntitiesDTO\\PR.EntitiesDTO.csproj": {
+              "projectPath": "C:\\Users\\Михаил\\Desktop\\ParkingReport\\ParkingReport\\PR.EntitiesDTO\\PR.EntitiesDTO.csproj"
+            },
+            "C:\\Users\\Михаил\\Desktop\\ParkingReport\\ParkingReport\\PR.Entities\\PR.Entities.csproj": {
+              "projectPath": "C:\\Users\\Михаил\\Desktop\\ParkingReport\\ParkingReport\\PR.Entities\\PR.Entities.csproj"
+            },
+            "C:\\Users\\Михаил\\Desktop\\ParkingReport\\ParkingReport\\PR.Interfaces\\PR.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\Михаил\\Desktop\\ParkingReport\\ParkingReport\\PR.Interfaces\\PR.Interfaces.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

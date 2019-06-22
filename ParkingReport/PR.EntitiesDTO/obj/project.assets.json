@@ -207,6 +207,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "PR.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/PR.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PR.Entities.dll": {}
+        }
       }
     }
   },
@@ -673,11 +683,17 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "PR.Entities/1.0.0": {
+      "type": "project",
+      "path": "../PR.Entities/PR.Entities.csproj",
+      "msbuildProject": "../PR.Entities/PR.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "PR.Entities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -709,7 +725,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Михаил\\Desktop\\ParkingReport\\ParkingReport\\PR.Entities\\PR.Entities.csproj": {
+              "projectPath": "C:\\Users\\Михаил\\Desktop\\ParkingReport\\ParkingReport\\PR.Entities\\PR.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
