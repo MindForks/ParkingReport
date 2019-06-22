@@ -1,12 +1,15 @@
-﻿
+
 using Microsoft.AspNetCore.Identity;
+
 using Microsoft.EntityFrameworkCore;
 using PR.Entities;
 using PR.Interfaces;
 using System;
 using System.Collections.Generic;
+
 using System.IO;
 using System.Linq;
+
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,7 +55,11 @@ namespace PR.Data.Repositories
 
         public Task<User> GetItemAsync(string id)
         {
+
+            return  _userManager.FindByIdAsync(id);
+
             return _userManager.FindByIdAsync(id);
+
         }
 
         public System.Threading.Tasks.Task SaveChangesAsync()
@@ -65,4 +72,5 @@ namespace PR.Data.Repositories
             GC.SuppressFinalize(this);
         }
     }
+
 }

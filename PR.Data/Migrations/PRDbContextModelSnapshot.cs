@@ -217,6 +217,10 @@ namespace PR.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<bool>("IsBanned");
+
+                    b.Property<bool>("IsNumberAproved");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -232,6 +236,8 @@ namespace PR.Data.Migrations
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("Plate");
 
                     b.Property<string>("SecurityStamp");
 

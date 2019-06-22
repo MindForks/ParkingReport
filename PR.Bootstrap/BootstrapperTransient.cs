@@ -26,6 +26,13 @@ namespace PR.Bootstrap
 
 
             #region Repositories
+            services.AddScoped<IRepositoryAsync<User>, UserRepository>();
+            #endregion Repositories
+
+            #region Services
+            services.AddScoped<IRepositoryAsync<User>, UserRepository>();
+            services.AddTransient<UserService>();
+            //services.AddSingleton<RoleManager<IdentityRole>>();
             services.AddScoped<IRepository<Report>, ReportRepository>();
             services.AddScoped<IRepository<ReportStatus>, BasicRepository<ReportStatus>>();
 
@@ -33,6 +40,7 @@ namespace PR.Bootstrap
 
             #region Services
             services.AddTransient<ReportService>();
+
             services.AddTransient<ReportStatusService>(); 
             services.AddTransient<UserService>(); 
 
@@ -46,6 +54,7 @@ namespace PR.Bootstrap
                 opts.Password.RequireNonAlphanumeric = false;
             })
             .AddEntityFrameworkStores<PRDbContext>()
+            .AddRoleStore<PRDbContext>()
             .AddDefaultTokenProviders();
         }
     }
