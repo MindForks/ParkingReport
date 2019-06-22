@@ -18,7 +18,8 @@
 
     </div>
     <div class="col-md-4">
-        <img class="img-responsive" src="~/images/image.png" />
+        <input type="image" src="~/images/image.png" />
+        <input type="file" id="my_file" style="display: none;" />
     </div>
     <div class="col-md-4">
 
@@ -58,6 +59,11 @@
 
 <script src="~/js/bootstrap-imageupload.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $("input[type='image']").click(function() {
+        $("input[id='my_file']").click();
+    });
+</script>
 <script>
     $(document).ready(function () {
         navigator.geolocation.getCurrentPosition(function (location) {
