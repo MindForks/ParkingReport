@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="2.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PR.Entities\PR.Entities.csproj" />
   </ItemGroup>
 
