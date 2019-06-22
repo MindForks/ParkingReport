@@ -60,7 +60,8 @@ namespace PR.Data.Repositories
 
         private IQueryable<Report> GetAllQuery()
         {
-            return db;
+            return db
+                .Include(i => i.Status);
 
         }
 

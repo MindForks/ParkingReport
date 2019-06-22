@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Details";
 }
+@{
+    var statuses = ((IEnumerable<SelectListItem>)ViewData["Statuses"]);
+}
 
 <center><h3>Report details</h3></center>
 <hr />
