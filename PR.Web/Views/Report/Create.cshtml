@@ -1,0 +1,60 @@
+﻿@model PR.EntitiesDTO.ReportDTO
+
+@{
+    ViewData["Title"] = "Create ";
+}
+<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+
+
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <img class="img-responsive" src="~/images/image.png" />
+    </div>
+
+    <input asp-for="Id" type="hidden" />
+    <input asp-for="UserId" type="hidden" />
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input asp-for="Longitude" id="Longitude" class="form-control" type="hidden"/>
+            <input asp-for="Latitude" id="Latitude" class="form-control" type="hidden" />
+
+            <div class="form-group">
+                <label asp-for="CarNumber" class="control-label"></label>
+                <input asp-for="CarNumber" class="form-control" />
+                <span asp-validation-for="CarNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Violation" class="control-label"></label>
+                <input asp-for="Violation" class="form-control" />
+                <span asp-validation-for="Violation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssignedComment" class="control-label"></label>
+                <input asp-for="AssignedComment" class="form-control" />
+                <span asp-validation-for="AssignedComment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Cancel" class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        navigator.geolocation.getCurrentPosition(function (location) {
+            $("#Latitude").val(location.coords.latitude);
+            $("#Longitude").val(location.coords.longitude);
+        });
+    });</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

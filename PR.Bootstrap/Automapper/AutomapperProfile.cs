@@ -11,6 +11,10 @@ namespace PR.Bootstrap.Automapper
         {
             #region MapSettings
 
+            CreateMap<Report, ReportDTO>()
+            .ForMember(x => x.AttachedFiles, opt => opt.Ignore());
+            CreateMap<ReportDTO, Report>()
+            .ForMember(x => x.AttachedFiles, opt => opt.Ignore());
             #endregion
         }
     }

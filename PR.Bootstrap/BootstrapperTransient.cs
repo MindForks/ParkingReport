@@ -33,7 +33,11 @@ namespace PR.Bootstrap
             services.AddScoped<IRepositoryAsync<User>, UserRepository>();
             services.AddTransient<UserService>();
             //services.AddSingleton<RoleManager<IdentityRole>>();
-            
+            services.AddScoped<IRepository<Report>, ReportRepository>();
+            #endregion Repositories
+
+            #region Services
+            services.AddTransient<ReportService>();
             #endregion Services
         }
         public static void AddIdentity(this IServiceCollection services)

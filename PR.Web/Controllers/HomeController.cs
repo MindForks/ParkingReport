@@ -27,7 +27,10 @@ namespace ParkingReport.Controllers
         {
             return View();
         }
+        public HomeController()
+        {
 
+        }
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
@@ -52,6 +55,7 @@ namespace ParkingReport.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
 
         [HttpGet]
         public IActionResult VerificateNumber()
@@ -136,5 +140,16 @@ namespace ParkingReport.Controllers
             
             return View();
         }
+
+        public IActionResult AddIncident()
+        {
+            return View();
+        }
+        public IActionResult ListIncidents()
+        {
+            return View();
+        }
+        
+
     }
 }
