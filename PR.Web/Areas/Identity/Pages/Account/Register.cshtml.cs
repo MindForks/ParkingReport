@@ -44,6 +44,15 @@ namespace PR.Web.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [EmailAddress]
+            [Display(Name = "Емейл")]
+            public string Email { get; set; }
+            [Required]
+            [Display(Name = "Имя")]
+            public string FirstName { get; set; }
+            [Required]
+            [Display(Name = "Фамилия")]
+            public string LastName { get; set; }
             [Required]
             [Display(Name = "Number")]
             public string Number { get; set; }
@@ -77,7 +86,7 @@ namespace PR.Web.Areas.Identity.Pages.Account
                     IdentityResult r2 = await _roleManager.CreateAsync(new IdentityRole("user"));
                     IdentityResult r3 = await _roleManager.CreateAsync(new IdentityRole("parkingAssistant"));
                 }
-                var user = new User { UserName = Input.Email, Email = Input.Email };
+                var user = new User { UserName = Input.FirstName + Input.LastName, Email = Input.Email, PhoneNumber = Input.Number };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 var result2 = await _userManager.AddToRoleAsync(user, "user");
                 if (result.Succeeded && result2.Succeeded)

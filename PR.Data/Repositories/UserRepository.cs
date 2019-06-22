@@ -58,8 +58,6 @@ namespace PR.Data.Repositories
 
             return  _userManager.FindByIdAsync(id);
 
-            return _userManager.FindByIdAsync(id);
-
         }
 
         public System.Threading.Tasks.Task SaveChangesAsync()

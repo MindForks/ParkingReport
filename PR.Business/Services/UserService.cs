@@ -3,6 +3,7 @@ using PR.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PR.Business.Services
 {
@@ -22,9 +23,14 @@ namespace PR.Business.Services
             return await _repository.GetAllAsync();
         }
 
-        public async System.Threading.Tasks.Task<User> GetItemAsync(string id)
+        public User GetItemAsync(string id)
         {
-            return await _repository.GetItemAsync(id);
+            return _repository.GetItemAsync(id).Result;
+        }
+
+        public async Task UpdateAsync(User user)
+        {
+            await _repository.UpdateAsync(user);
         }
     }
 }

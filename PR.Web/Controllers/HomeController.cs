@@ -27,10 +27,8 @@ namespace ParkingReport.Controllers
         {
             return View();
         }
-        public HomeController()
-        {
-
-        }
+        
+        
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

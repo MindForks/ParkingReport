@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\UserServise.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PR.EntitiesDTO\PR.EntitiesDTO.csproj" />
     <ProjectReference Include="..\PR.Entities\PR.Entities.csproj" />
     <ProjectReference Include="..\PR.Interfaces\PR.Interfaces.csproj" />
