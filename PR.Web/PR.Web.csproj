@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Services\" />
-    <Folder Include="Views\Assistant_Report\" />
 
     <Folder Include="wwwroot\" />
     <Folder Include="Models\" />
@@ -26,6 +25,15 @@
     <ProjectReference Include="..\PR.Business\PR.Business.csproj" />
     <ProjectReference Include="..\PR.EntitiesDTO\PR.EntitiesDTO.csproj" />
     <ProjectReference Include="..\PR.Interfaces\PR.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Assistant_Report\Details.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Assistant_Report\List.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>
