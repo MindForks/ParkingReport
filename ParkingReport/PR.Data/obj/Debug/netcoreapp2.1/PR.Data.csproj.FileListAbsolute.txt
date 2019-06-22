@@ -1,0 +1,14 @@
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\bin\Debug\netcoreapp2.1\PR.Data.deps.json
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\bin\Debug\netcoreapp2.1\PR.Data.dll
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\obj\Debug\netcoreapp2.1\PR.Data.csproj.CoreCompileInputs.cache
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\obj\Debug\netcoreapp2.1\PR.Data.AssemblyInfoInputs.cache
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\obj\Debug\netcoreapp2.1\PR.Data.AssemblyInfo.cs
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\bin\Debug\netcoreapp2.1\PR.Entities.dll
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\bin\Debug\netcoreapp2.1\PR.Interfaces.dll
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\obj\Debug\netcoreapp2.1\PR.Data.csprojAssemblyReference.cache
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\bin\Debug\netcoreapp2.1\PR.Data.pdb
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\bin\Debug\netcoreapp2.1\PR.Entities.pdb
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\bin\Debug\netcoreapp2.1\PR.Interfaces.pdb
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\obj\Debug\netcoreapp2.1\PR.Data.csproj.CopyComplete
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\obj\Debug\netcoreapp2.1\PR.Data.dll
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Data\obj\Debug\netcoreapp2.1\PR.Data.pdb

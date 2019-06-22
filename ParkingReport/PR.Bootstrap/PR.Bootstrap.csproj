@@ -4,4 +4,15 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PR.Business\PR.Business.csproj" />
+    <ProjectReference Include="..\PR.Data\PR.Data.csproj" />
+    <ProjectReference Include="..\PR.Interfaces\PR.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

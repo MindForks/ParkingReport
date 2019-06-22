@@ -3,24 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC9CE672-8AFE-402B-9219-718CB225F983}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PR.Bootstrap", "PR.Bootstrap\PR.Bootstrap.csproj", "{58A1E42B-4A6F-4B99-BEBF-C8022333BA6B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PR.Business", "PR.Business\PR.Business.csproj", "{46E3B65E-7C2A-44A6-9417-950A2D8E4D8D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PR.Data", "PR.Data\PR.Data.csproj", "{AF0F5D4E-C500-4473-B436-8BB26C91F203}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PR.Entities", "PR.Entities\PR.Entities.csproj", "{464BC2F2-FF90-46D0-B9B5-87FD56BED300}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PR.EntitiesDTO", "PR.EntitiesDTO\PR.EntitiesDTO.csproj", "{1D3BA3DC-9864-4479-BFDD-DCD7F8A07904}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PR.Interfaces", "PR.Interfaces\PR.Interfaces.csproj", "{D5C35FB1-8655-49E0-A8CA-A756EBFBB7E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PR.Web", "PR.Web\PR.Web.csproj", "{155B0AA1-0C62-4D0C-A895-1DA0E9233AAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4FC67330-2F3E-42DE-9514-E17B543BC936}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\Apriorit\TMS\.gitignore = ..\..\Apriorit\TMS\.gitignore
+		.gitignore = .gitignore
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PR.Bootstrap", "PR.Bootstrap\PR.Bootstrap.csproj", "{58A1E42B-4A6F-4B99-BEBF-C8022333BA6B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PR.Business", "PR.Business\PR.Business.csproj", "{46E3B65E-7C2A-44A6-9417-950A2D8E4D8D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PR.Data", "PR.Data\PR.Data.csproj", "{AF0F5D4E-C500-4473-B436-8BB26C91F203}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PR.Entities", "PR.Entities\PR.Entities.csproj", "{464BC2F2-FF90-46D0-B9B5-87FD56BED300}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PR.EntitiesDTO", "PR.EntitiesDTO\PR.EntitiesDTO.csproj", "{1D3BA3DC-9864-4479-BFDD-DCD7F8A07904}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PR.Interfaces", "PR.Interfaces\PR.Interfaces.csproj", "{D5C35FB1-8655-49E0-A8CA-A756EBFBB7E9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PR.Web", "PR.Web\PR.Web.csproj", "{155B0AA1-0C62-4D0C-A895-1DA0E9233AAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
