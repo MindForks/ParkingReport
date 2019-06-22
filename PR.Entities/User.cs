@@ -7,7 +7,12 @@ namespace PR.Entities
 {
     public class User : IdentityUser
     {
+
         public bool IsBanned { get; set; }
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
 
         public ICollection<Report> Reports { get; set; }
 

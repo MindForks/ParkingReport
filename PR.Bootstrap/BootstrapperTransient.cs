@@ -34,10 +34,16 @@ namespace PR.Bootstrap
             services.AddTransient<UserService>();
             //services.AddSingleton<RoleManager<IdentityRole>>();
             services.AddScoped<IRepository<Report>, ReportRepository>();
+            services.AddScoped<IRepository<ReportStatus>, BasicRepository<ReportStatus>>();
+
             #endregion Repositories
 
             #region Services
             services.AddTransient<ReportService>();
+
+            services.AddTransient<ReportStatusService>(); 
+            services.AddTransient<UserService>(); 
+
             #endregion Services
         }
         public static void AddIdentity(this IServiceCollection services)

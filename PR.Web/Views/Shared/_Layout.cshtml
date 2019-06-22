@@ -60,7 +60,8 @@
 <div class="row row-offcanvas row-offcanvas-left">
     <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
         <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
-            <li class="nav-item"><a class="nav-link" asp-controller="Report" asp-action="Create">Report</a></li>
+            <li class="nav-item"><a class="nav-link" asp-controller="Reporter_Report" asp-action="Create">Report create</a></li>
+            <li class="nav-item"><a class="nav-link" asp-controller="Reporter_Report" asp-action="List">My Reports</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
             <li class="nav-item">
@@ -76,7 +77,8 @@
                             <button type="submit" class="btn btn-link">Logout</button>
                         </div>
                     </form>
-                }</li>
+                }
+            </li>
         </ul>
     </div>
     <!--/col-->
