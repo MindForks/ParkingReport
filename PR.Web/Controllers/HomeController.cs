@@ -18,7 +18,7 @@ namespace ParkingReport.Controllers
 
         public HomeController(UserService UserService)
         {
-            _UserService = UserService;
+            _userService = UserService;
         }
 
         public IActionResult Index()
@@ -61,7 +61,7 @@ namespace ParkingReport.Controllers
         private static void SendSms()
         {
 
-            string number = _userService.GetItemAsync()
+            //string number = _userService.GetItemAsync()
             var XML = "XML=<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                         "<SMS>\n" +
                         "<operations>\n" +
