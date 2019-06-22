@@ -1,0 +1,14 @@
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\bin\Debug\netcoreapp2.1\PR.Web.deps.json
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\bin\Debug\netcoreapp2.1\PR.Web.runtimeconfig.json
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\bin\Debug\netcoreapp2.1\PR.Web.runtimeconfig.dev.json
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\bin\Debug\netcoreapp2.1\PR.Web.dll
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\bin\Debug\netcoreapp2.1\PR.Web.pdb
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\obj\Debug\netcoreapp2.1\PR.Web.csprojAssemblyReference.cache
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\obj\Debug\netcoreapp2.1\PR.Web.csproj.CoreCompileInputs.cache
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\obj\Debug\netcoreapp2.1\PR.Web.RazorAssemblyInfo.cache
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\obj\Debug\netcoreapp2.1\PR.Web.RazorAssemblyInfo.cs
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\obj\Debug\netcoreapp2.1\PR.Web.AssemblyInfoInputs.cache
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\obj\Debug\netcoreapp2.1\PR.Web.AssemblyInfo.cs
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\obj\Debug\netcoreapp2.1\PR.Web.RazorTargetAssemblyInfo.cache
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\obj\Debug\netcoreapp2.1\PR.Web.dll
+C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Web\obj\Debug\netcoreapp2.1\PR.Web.pdb
