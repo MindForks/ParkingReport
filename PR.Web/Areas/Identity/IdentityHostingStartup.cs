@@ -20,8 +20,14 @@ namespace PR.Web.Areas.Identity
                 services.AddDbContext<PRDbContext>(options =>
                     options.UseMySql(
                         context.Configuration.GetConnectionString("DefaultConnection")));
-                services.AddDefaultIdentity<User>()
-                     .AddEntityFrameworkStores<PRDbContext>();
+                
+                IdentityBuilder idb= services.AddDefaultIdentity<User>();
+                idb.AddRoles<IdentityRole>();
+                idb.AddRoleManager<RoleManager<IdentityRole>>();
+                idb.AddEntityFrameworkStores<PRDbContext>();
+                //idb.AddRoleStore<PRDbContext>();
+                
+              
             });
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -18,6 +19,7 @@ namespace PR.Web.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
@@ -25,12 +27,14 @@ namespace PR.Web.Areas.Identity.Pages.Account
             UserManager<User> userManager,
             SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _roleManager = roleManager;
         }
 
         [BindProperty]
@@ -41,9 +45,8 @@ namespace PR.Web.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
+            [Display(Name = "Number")]
+            public string Number { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -67,9 +70,17 @@ namespace PR.Web.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
+                // TODO: перенести в другое место это
+                if (_roleManager.Roles.Count() == 0)
+                {
+                    IdentityResult r = await _roleManager.CreateAsync(new IdentityRole("admin"));
+                    IdentityResult r2 = await _roleManager.CreateAsync(new IdentityRole("user"));
+                    IdentityResult r3 = await _roleManager.CreateAsync(new IdentityRole("parkingAssistant"));
+                }
                 var user = new User { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
-                if (result.Succeeded)
+                var result2 = await _userManager.AddToRoleAsync(user, "user");
+                if (result.Succeeded && result2.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
 

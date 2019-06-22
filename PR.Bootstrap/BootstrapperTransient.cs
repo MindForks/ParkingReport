@@ -32,6 +32,8 @@ namespace PR.Bootstrap
             #region Services
             services.AddScoped<IRepositoryAsync<User>, UserRepository>();
             services.AddTransient<UserService>();
+            //services.AddSingleton<RoleManager<IdentityRole>>();
+            
             #endregion Services
         }
         public static void AddIdentity(this IServiceCollection services)
@@ -42,6 +44,7 @@ namespace PR.Bootstrap
                 opts.Password.RequireNonAlphanumeric = false;
             })
             .AddEntityFrameworkStores<PRDbContext>()
+            .AddRoleStore<PRDbContext>()
             .AddDefaultTokenProviders();
         }
     }

@@ -14,5 +14,7 @@ namespace PR.Entities
         public bool IsNumberAproved { get; set; }
 
         public string Plate { get; set; }
+
+        
     }
 }

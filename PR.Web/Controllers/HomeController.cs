@@ -123,7 +123,7 @@ namespace ParkingReport.Controllers
         }
 
         [HttpGet]
-        public  Task<bool> IsNumberVerificate()
+        public  bool IsNumberVerificate()
         {
             var user = _userService.GetItemAsync(_userId);
 
