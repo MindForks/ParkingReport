@@ -18,11 +18,11 @@
 
     </div>
     <div class="col-md-4">
-        <input type="image" src="~/images/image.png" />
-        <input type="file" id="my_file" style="display: none;" />
+        <input type='file' onchange="readURL(this);" />
+        <img id="blah" src="~/images/image.png" alt="your image" />
     </div>
     <div class="col-md-4">
-
+        
     </div>
     <input asp-for="Id" type="hidden" />
     <input asp-for="UserId" type="hidden" />
@@ -58,20 +58,19 @@
 }
 
 <script src="~/js/bootstrap-imageupload.min.js"></script>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script>
-    $("input[type='image']").click(function() {
-        $("input[id='my_file']").click();
-    });
-</script>
-<script>
-    $(document).ready(function () {
-        navigator.geolocation.getCurrentPosition(function (location) {
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-            var lat = location.coords.latitude;
-            var long = location.coords.longitude;
-            document.getElementById("Latitude").setAttribute("value",lat);
-            document.getElementById("Longitude").setAttribute("value", long);
-        });
-    });
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 </script>
