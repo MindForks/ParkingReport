@@ -40,7 +40,12 @@ namespace PR.Data.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    IsBanned = table.Column<bool>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    IsNumberAproved = table.Column<bool>(nullable: false),
+                    Plate = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -175,7 +180,7 @@ namespace PR.Data.Migrations
                     Longitude = table.Column<double>(nullable: false),
                     Latitude = table.Column<double>(nullable: false),
                     CarNumber = table.Column<string>(nullable: true),
-                    Violation = table.Column<string>(nullable: true),
+                    Violation = table.Column<string>(nullable: false),
                     AssignedComment = table.Column<string>(nullable: true),
                     CreationTime = table.Column<DateTimeOffset>(nullable: false),
                     StatusId = table.Column<int>(nullable: false),
@@ -206,7 +211,7 @@ namespace PR.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Path = table.Column<string>(nullable: false),
-                    ReportId = table.Column<int>(nullable: true)
+                    ReportId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -216,7 +221,7 @@ namespace PR.Data.Migrations
                         column: x => x.ReportId,
                         principalTable: "Report",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(

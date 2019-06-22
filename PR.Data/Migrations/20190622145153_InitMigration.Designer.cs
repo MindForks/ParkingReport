@@ -10,7 +10,7 @@ using PR.Data;
 namespace PR.Data.Migrations
 {
     [DbContext(typeof(PRDbContext))]
-    [Migration("20190622103237_InitMigration")]
+    [Migration("20190622145153_InitMigration")]
     partial class InitMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -142,7 +142,7 @@ namespace PR.Data.Migrations
                     b.Property<string>("Path")
                         .IsRequired();
 
-                    b.Property<int?>("ReportId");
+                    b.Property<int>("ReportId");
 
                     b.HasKey("Id");
 
@@ -171,7 +171,8 @@ namespace PR.Data.Migrations
 
                     b.Property<string>("UserId");
 
-                    b.Property<string>("Violation");
+                    b.Property<string>("Violation")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -219,6 +220,14 @@ namespace PR.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<string>("FirstName");
+
+                    b.Property<bool>("IsBanned");
+
+                    b.Property<bool>("IsNumberAproved");
+
+                    b.Property<string>("LastName");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -234,6 +243,8 @@ namespace PR.Data.Migrations
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("Plate");
 
                     b.Property<string>("SecurityStamp");
 
@@ -302,9 +313,10 @@ namespace PR.Data.Migrations
 
             modelBuilder.Entity("PR.Entities.AttachedFile", b =>
                 {
-                    b.HasOne("PR.Entities.Report")
+                    b.HasOne("PR.Entities.Report", "Report")
                         .WithMany("AttachedFiles")
-                        .HasForeignKey("ReportId");
+                        .HasForeignKey("ReportId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("PR.Entities.Report", b =>
