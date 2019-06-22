@@ -1,9 +1,0 @@
-C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Interfaces\bin\Debug\netcoreapp2.1\PR.Interfaces.deps.json
-C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Interfaces\bin\Debug\netcoreapp2.1\PR.Interfaces.dll
-C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Interfaces\bin\Debug\netcoreapp2.1\PR.Interfaces.pdb
-C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Interfaces\obj\Debug\netcoreapp2.1\PR.Interfaces.csprojAssemblyReference.cache
-C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Interfaces\obj\Debug\netcoreapp2.1\PR.Interfaces.csproj.CoreCompileInputs.cache
-C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Interfaces\obj\Debug\netcoreapp2.1\PR.Interfaces.AssemblyInfoInputs.cache
-C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Interfaces\obj\Debug\netcoreapp2.1\PR.Interfaces.AssemblyInfo.cs
-C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Interfaces\obj\Debug\netcoreapp2.1\PR.Interfaces.dll
-C:\Users\Михаил\Desktop\ParkingReport\ParkingReport\PR.Interfaces\obj\Debug\netcoreapp2.1\PR.Interfaces.pdb
