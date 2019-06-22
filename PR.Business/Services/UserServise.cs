@@ -23,9 +23,9 @@ namespace PR.Business.Services
             return await _repository.GetAllAsync();
         }
 
-        public async System.Threading.Tasks.Task<User> GetItemAsync(string id)
+        public  User GetItemAsync(string id)
         {
-            return await _repository.GetItemAsync(id);
+            return _repository.GetItemAsync(id).Result;
         }
 
         public async Task UpdateAsync(User user)

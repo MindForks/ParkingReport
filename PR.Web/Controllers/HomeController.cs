@@ -63,7 +63,7 @@ namespace ParkingReport.Controllers
         private async void SendSms()
         {
 
-            var user = await _userService.GetItemAsync(_userId);
+            var user = _userService.GetItemAsync(_userId);
             string number = user.PhoneNumber;
             int code = Convert.ToInt32(number.Substring(number.Length - 4)) >> 2;
             var XML = "XML=<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
@@ -109,7 +109,7 @@ namespace ParkingReport.Controllers
         [HttpPost]
         public async Task<ViewResult> NumberAprove(int codeVerification)
         {
-            var user = await _userService.GetItemAsync(_userId);
+            var user = _userService.GetItemAsync(_userId);
             string number = user.PhoneNumber;
             int code = Convert.ToInt32(number.Substring(number.Length - 4)) >> 2;
             if (codeVerification == code)
@@ -123,9 +123,9 @@ namespace ParkingReport.Controllers
         }
 
         [HttpGet]
-        public async Task<bool> IsNumberVerificate()
+        public  Task<bool> IsNumberVerificate()
         {
-            var user = await _userService.GetItemAsync(_userId);
+            var user = _userService.GetItemAsync(_userId);
 
             return user.IsNumberAproved;
         }
