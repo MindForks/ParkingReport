@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ParkingReport.Models;
 using PR.Business.Services;
@@ -15,6 +16,7 @@ namespace ParkingReport.Controllers
     public class HomeController : Controller
     {
         private readonly UserService _userService;
+        private string _userId { get { return User.Identity.GetUserId(); } }
 
         public HomeController(UserService UserService)
         {
@@ -58,10 +60,12 @@ namespace ParkingReport.Controllers
             return View();
         }
 
-        private static void SendSms()
+        private async void SendSms()
         {
 
-            //string number = _userService.GetItemAsync()
+            var user = await _userService.GetItemAsync(_userId);
+            string number = user.PhoneNumber;
+            int code = Convert.ToInt32(number.Substring(number.Length - 4)) >> 2;
             var XML = "XML=<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                         "<SMS>\n" +
                         "<operations>\n" +
@@ -73,10 +77,10 @@ namespace ParkingReport.Controllers
                         "</authentification>\n" +
                         "<message>\n" +
                         "<sender>SMS</sender>\n" +
-                        "<text>Test message [UTF-8]</text>\n" +
+                        "<text>" + code + "</text>\n" +
                         "</message>\n" +
                         "<numbers>\n" +
-                        "<number messageID=\"msg11\">380505179691</number>\n" +
+                        "<number messageID=\"msg11\">" + number + "</number>\n" +
                         "</numbers>\n" +
                         "</SMS>\n";
             HttpWebRequest request = WebRequest.Create("http://api.atompark.com/members/sms/xml.php") as HttpWebRequest;
@@ -103,8 +107,33 @@ namespace ParkingReport.Controllers
         }
 
         [HttpPost]
-        public IActionResult IsNumberVerificate(int code)
+        public async Task<ViewResult> NumberAprove(int codeVerification)
         {
+            var user = await _userService.GetItemAsync(_userId);
+            string number = user.PhoneNumber;
+            int code = Convert.ToInt32(number.Substring(number.Length - 4)) >> 2;
+            if (codeVerification == code)
+            {
+                user.IsNumberAproved = true;
+                await _userService.UpdateAsync(user);
+
+            }
+                
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<bool> IsNumberVerificate()
+        {
+            var user = await _userService.GetItemAsync(_userId);
+
+            return user.IsNumberAproved;
+        }
+
+        [HttpGet]
+        public ViewResult NumberAprove()
+        {
+            
             return View();
         }
     }
