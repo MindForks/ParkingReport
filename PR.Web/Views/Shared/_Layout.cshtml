@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BootstrapTemplate</title>
+    <title>@ViewData["Title"] - Report Parking</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -24,7 +24,7 @@
         <button type="button" class="navbar-toggler mr-2 " data-toggle="offcanvas" title="Toggle responsive left sidebar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#" title="Free Bootstrap 4 Admin Template">Admin Template</a>
+        <a class="navbar-brand" href="#" title="Report Parking">Report Parking</a>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -70,25 +70,29 @@
 <div class="row row-offcanvas row-offcanvas-left">
     <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
         <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
-            <li class="nav-item"><a class="nav-link" href="#">Overview</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Report</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
             <li class="nav-item">
-                <a class="nav-link" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Reports▾</a>
-                <ul class="list-unstyled flex-column pl-3 collapse" id="submenu1" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="">Report 1</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Report 2</a></li>
-                </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#">Analytics</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Export</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Snippets</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Flexbox</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Layouts</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Templates</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Themes</a></li>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <a class="nav-link" href="#">Login</a>
+                }
+                else
+                {
+                    <form method="post">
+                        <div class="input-group">
+                            <span>@User.Identity.IsAuthenticated</span>
+                            <button type="submit" class="btn btn-link">Logout</button>
+                        </div>
+                    </form>
+                }</li>
         </ul>
     </div>
     <!--/col-->
+    <div class="col main pt-5 mt-3">
     @RenderBody()
+    </div>
 </div> <!-- /main container-->
     <footer class="container-fluid">
         <p class="text-right small">©2016-2018 Company</p>
