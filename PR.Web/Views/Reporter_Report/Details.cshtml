@@ -27,7 +27,8 @@
         <div class="form-group">
             <label asp-for="Status" class="control-label"></label>
             <br />
-            <label>@Model.Status.Title</label>
+            <label>@(statuses.FirstOrDefault(i => i.Value == Model.StatusId.ToString()).Text)</label>
+
             <br />
         </div>
         <div class="form-group">

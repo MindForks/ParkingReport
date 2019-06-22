@@ -44,7 +44,7 @@
                         <label>@item.Violation</label>
                     </td>
                     <td>
-                        <label>@item.CreationTime</label>
+                        <label>@item.CreationTime.ToString("dd.MM.yyyy HH:mm")</label>
                     </td>
                     <td>
                         <label>@(statuses.FirstOrDefault(i => i.Value == item.StatusId.ToString()).Text)</label>

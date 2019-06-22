@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Create ";
 }
+@Html.HiddenFor(m => m.Latitude, new { id = "Latitude" })
+@Html.HiddenFor(m => m.Longitude, new { id = "Longitude" })
+
 <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
 <link href="~/css/bootstrap-imageupload.min.css" rel="stylesheet">
 
@@ -26,8 +29,7 @@
     </div>
     <input asp-for="Id" type="hidden" />
     <input asp-for="UserId" type="hidden" />
-    <input id="Latitude" asp-for="Latitude" type="hidden" />
-    <input id="Longitude" asp-for="Longitude" type="hidden" />
+
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -43,14 +45,11 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-success" />
-                <input type="submit" value="Cancel" class="btn btn-danger" />
+                <a asp-action="List" class="btn btn-info">My reports</a>
+
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
@@ -60,18 +59,15 @@
 <script src="~/js/bootstrap-imageupload.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script>
-    $("input[type='image']").click(function() {
+    $("input[type='image']").click(function () {
         $("input[id='my_file']").click();
     });
 </script>
 <script>
-    $(document).ready(function () {
+    window.addEventListener("load", function () {
         navigator.geolocation.getCurrentPosition(function (location) {
-
-            var lat = location.coords.latitude;
-            var long = location.coords.longitude;
-            document.getElementById("Latitude").setAttribute("value",lat);
-            document.getElementById("Longitude").setAttribute("value", long);
-        });
+            document.getElementById("Latitude").value = location.coords.latitude;
+            document.getElementById("Longitude").value = location.coords.longitude;
+         });
     });
 </script>

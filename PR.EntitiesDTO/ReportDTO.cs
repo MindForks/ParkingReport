@@ -10,16 +10,22 @@ namespace PR.EntitiesDTO
     {
         public int Id { get; set; }
 
+        [Display(Name = "ReportsCount")]
         public int ReportsCount { get; set; }
 
         public double Longitude { get; set; }
 
         public double Latitude { get; set; }
 
+        [Display(Name = "CarNumber")]
+        [Required(ErrorMessage = "Car Number must be defined")]
         public string CarNumber { get; set; }
 
+        [Display(Name = "Violation")]
+        [Required(ErrorMessage = "Violation must be defined")]
         public string Violation { get; set; }
 
+        [Display(Name = "AssignedComment")]
         public string AssignedComment { get; set; }
 
         public DateTimeOffset CreationTime { get; set; }
