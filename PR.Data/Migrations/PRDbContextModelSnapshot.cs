@@ -129,19 +129,77 @@ namespace PR.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("PR.Entities.AttachedFile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Path")
+                        .IsRequired();
+
+                    b.Property<int>("ReportId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReportId");
+
+                    b.ToTable("AttachedFile");
+                });
+
             modelBuilder.Entity("PR.Entities.Report", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AssignedComment");
+
+                    b.Property<string>("CarNumber");
+
+                    b.Property<DateTimeOffset>("CreationTime");
+
+                    b.Property<double>("Latitude");
+
+                    b.Property<double>("Longitude");
+
+                    b.Property<int>("StatusId");
+
                     b.Property<string>("UserId");
 
+                    b.Property<string>("Violation");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("StatusId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Report");
+                });
+
+            modelBuilder.Entity("PR.Entities.ReportStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ReportStatus");
+
+                    b.HasData(
+                        new { Id = 1, Title = "Created" },
+                        new { Id = 2, Title = "InProgress" },
+                        new { Id = 3, Title = "FalseIncident" },
+                        new { Id = 4, Title = "CarAbsent" },
+                        new { Id = 5, Title = "Fixed" }
+                    );
                 });
 
             modelBuilder.Entity("PR.Entities.User", b =>
@@ -159,10 +217,6 @@ namespace PR.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<bool>("IsBanned");
-
-                    b.Property<bool>("IsNumberAproved");
-
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -178,8 +232,6 @@ namespace PR.Data.Migrations
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("Plate");
 
                     b.Property<string>("SecurityStamp");
 
@@ -246,9 +298,22 @@ namespace PR.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("PR.Entities.AttachedFile", b =>
+                {
+                    b.HasOne("PR.Entities.Report", "Report")
+                        .WithMany("AttachedFiles")
+                        .HasForeignKey("ReportId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("PR.Entities.Report", b =>
                 {
-                    b.HasOne("PR.Entities.User")
+                    b.HasOne("PR.Entities.ReportStatus", "Status")
+                        .WithMany()
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("PR.Entities.User", "User")
                         .WithMany("Reports")
                         .HasForeignKey("UserId");
                 });
